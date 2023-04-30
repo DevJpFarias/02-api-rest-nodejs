@@ -2,6 +2,7 @@ import Fastify from 'fastify'
 import crypto from 'node:crypto'
 import { knex } from './database'
 import { env } from './env'
+import { transactionsRoutes } from './routes/transactions'
 
 const fastify = Fastify()
 
@@ -22,12 +23,7 @@ fastify.post('/transaction', async function (request, reply) {
   return transaction
 })
 
-fastify.get('/transactions', async function (request, reply) {
-  const transactions = await knex('transactions')
-    .select('*')
-
-  return transactions
-})
+fastify.register(transactionsRoutes)
 
 fastify.listen({
   port: env.SERVER_PORT,
