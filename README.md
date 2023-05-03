@@ -1,3 +1,11 @@
+*Iniciando o projeto*
+
+-> npm install
+-> npm run dev
+-> Ao acessar alguma rota, o banco irá ser criado automaticamente
+-> npm run knex -- migrate:latest
+
+
 **RF**
 - [] O usuário deve poder criar uma nova transação;
 - [] O usuário deve poder obter um resumo da sua conta;
